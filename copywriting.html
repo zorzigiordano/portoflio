@@ -143,11 +143,11 @@
     }
     .sospiri-text-area {
       position: relative;
-      display: grid;
-      align-items: start;
+      transition: height 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     .sospiro-block {
-      grid-area: 1 / 1;
+      position: absolute;
+      top: 0; left: 0; width: 100%;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -697,7 +697,16 @@
       const dots = document.querySelectorAll('.sospiro-dot');
       const sospiraBtn = document.getElementById('sospira-btn');
       const inspiraBtn = document.getElementById('inspira-btn');
+      const textArea = document.querySelector('.sospiri-text-area');
       let current = 0;
+
+      function updateHeight(idx) {
+        if (!textArea || !blocks[idx]) return;
+        textArea.style.height = blocks[idx].offsetHeight + 'px';
+      }
+
+      window.addEventListener('load', () => updateHeight(current));
+      window.addEventListener('resize', () => updateHeight(current));
 
       function updateDots(idx) {
         dots.forEach((dot, i) => {
@@ -720,6 +729,9 @@
 
         const outgoing = blocks[current];
         outgoing.classList.add('exiting');
+        
+        // Avvia l'animazione fluida dell'altezza
+        updateHeight(idx);
 
         setTimeout(() => {
           outgoing.classList.remove('active', 'exiting');
