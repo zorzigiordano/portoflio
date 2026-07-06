@@ -4,6 +4,17 @@
   // State to track if the user has already submitted the form in this session
   let hasSubmitted = false;
 
+  // Fix back button freeze (bfcache)
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      const overlay = document.getElementById('expand-overlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+        overlay.style.clipPath = '';
+      }
+    }
+  });
+
   // CSS injection to guarantee styling works across all pages
   const injectStyles = () => {
     if (document.getElementById('contact-modal-styles')) return;
@@ -168,9 +179,10 @@
   };
 
   document.addEventListener('click', function (e) {
-    // Intercept contact buttons
+    // Intercept contact buttons, but EXCLUDE the ones inside the footer
     const contactBtn = e.target.closest('a[href^="mailto:zorzigiordano@gmail.com"]');
     if (!contactBtn) return;
+    if (contactBtn.closest('.site-footer')) return;
 
     e.preventDefault();
     injectStyles();
@@ -194,6 +206,11 @@
               <div class="contact-form-group">
                 <label class="contact-form-label" for="contact-name">Il tuo nome</label>
                 <input class="contact-form-input" type="text" id="contact-name" name="nome" placeholder="Es. Mario Rossi" required>
+              </div>
+              
+              <div class="contact-form-group">
+                <label class="contact-form-label" for="contact-email">La tua email</label>
+                <input class="contact-form-input" type="email" id="contact-email" name="email" placeholder="Es. mario@email.com" required>
               </div>
               
               <div class="contact-form-group">
