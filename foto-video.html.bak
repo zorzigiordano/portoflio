@@ -132,6 +132,7 @@
         <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--gold-saffron); margin-bottom: 1.5rem;">Vuoi dare un'identità visiva d'impatto al tuo brand?</h3>
         <p style="font-size: 1.1rem; color: var(--text-eggshell); margin-bottom: 2rem;">Uniamo creatività sul campo e data analysis per contenuti che convertono e si fanno notare.</p>
         <a href="contatti.html" class="btn-primary" data-transition>CREIAMO I TUOI CONTENUTI</a>
+        <a href="https://drive.google.com/drive/folders/1pVp7soiN7caafTKMhDhzRwiKjQUKKE4w?usp=drive_link" target="_blank" class="btn-secondary" style="display: inline-block; margin-left: 1rem; border: 1px solid var(--gold-satin); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; color: var(--gold-satin); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.1em;">GUARDA I VIDEO SU DRIVE</a>
       </div>
     </div>
   </div>
