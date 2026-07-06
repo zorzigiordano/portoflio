@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM & Automation: Caso Studio ITS — Giordano Zorzi</title>
+  <meta name="description" content="Caso studio CRM: ecosistema di automazione e data engineering per l'ITS ICT Piemonte. Workflow 'Seconda Chance' per il corso Full Stack Developer.">
+  <meta name="author" content="Giordano Zorzi">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* ===== PAGE-SPECIFIC STYLES ===== */
+    .crm-hero-banner {
+      width: 100%;
+      min-height: 340px;
+      background: linear-gradient(135deg, #0b1d3a 0%, #1a2b4c 40%, #1c3c6e 70%, #c07d10 100%);
+      border-radius: 20px;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.6s ease both;
+    }
+    .crm-hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(212,175,55,0.03) 0px,
+        rgba(212,175,55,0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      );
+    }
+    .crm-hero-tag {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--gold-satin);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .crm-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--gold-saffron);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .crm-hero-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: rgba(242,236,221,0.75);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    /* ===== KPI COUNTERS ===== */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0 5rem 0;
+    }
+    .kpi-box {
+      background: rgba(26,43,76,0.6);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-box::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-satin), transparent);
+      opacity: 0.6;
+    }
+    .kpi-box:hover {
+      border-color: var(--gold-satin);
+      box-shadow: 0 8px 30px rgba(212,175,55,0.1);
+      transform: translateY(-4px);
+    }
+    .kpi-number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--gold-saffron);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .kpi-label {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text-eggshell);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-desc {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+    .crm-section {
+      margin-bottom: 5rem;
+    }
+
+    /* ===== TABS ===== */
+    .tabs-wrapper {
+      margin-top: 2rem;
+    }
+    .tabs-nav {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid rgba(212,175,55,0.35);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .tab-btn:hover { color: var(--text-eggshell); border-color: var(--gold-satin); }
+    .tab-btn.active {
+      background: var(--gold-satin);
+      color: var(--bg-night);
+      border-color: var(--gold-satin);
+      box-shadow: 0 4px 15px rgba(205,156,32,0.3);
+    }
+    .tabs-content-area {
+      background: rgba(26,43,76,0.5);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 0 16px 16px 16px;
+      padding: 2.5rem;
+      margin-top: -1px;
+      min-height: 200px;
+      border-top: 2px solid var(--gold-satin);
+    }
+    .tab-panel { display: none; animation: fadeInPanel 0.4s ease both; }
+    .tab-panel.active { display: block; }
+    @keyframes fadeInPanel {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .tab-panel h4 {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .criticita-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .criticita-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--text-eggshell);
+      line-height: 1.6;
+    }
+    .criticita-list li::before {
+      content: attr(data-icon);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--text-eggshell);
+      line-height: 1.6;
+    }
+    .benefit-list li::before {
+      content: '✓';
+      color: var(--gold-saffron);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ===== DATA ENGINEERING CARD ===== */
+    .db-card {
+      background: #0d1e36;
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 16px;
+      padding: 2rem;
+      font-family: 'Courier New', monospace;
+      margin-top: 2rem;
+      overflow-x: auto;
+    }
+    .db-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+    .db-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .db-dot.red   { background: #ff5f57; }
+    .db-dot.amber { background: #ffbd2e; }
+    .db-dot.green { background: #28c840; }
+    .db-card-title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-left: 0.5rem;
+    }
+    .db-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .db-table th {
+      color: var(--gold-satin);
+      text-align: left;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .db-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--text-eggshell);
+      vertical-align: top;
+    }
+    .db-table tr:last-child td { border-bottom: none; }
+    .db-table tr:hover td { background: rgba(212,175,55,0.04); }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(212,175,55,0.15);
+      color: var(--gold-saffron);
+      border: 1px solid rgba(212,175,55,0.3);
+      cursor: help;
+      position: relative;
+    }
+    .badge[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0d1e36;
+      border: 1px solid var(--gold-satin);
+      color: var(--text-eggshell);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 400;
+      line-height: 1.5;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      width: 280px;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      white-space: normal;
+      text-align: center;
+      pointer-events: none;
+    }
+    .badge[data-tooltip]:hover::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--gold-satin);
+      z-index: 101;
+      pointer-events: none;
+    }
+
+    /* ===== WORKFLOW PDF PLACEHOLDER ===== */
+    .pdf-placeholder {
+      border: 1.5px dashed var(--gold-satin);
+      border-radius: 16px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      background: rgba(212,175,55,0.03);
+      text-align: center;
+      padding: 2rem;
+    }
+    .pdf-placeholder-icon {
+      font-size: 3rem;
+      opacity: 0.5;
+    }
+    .pdf-placeholder-title {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold-satin);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .pdf-placeholder-sub {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== ACCORDION ===== */
+    .accordion {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .accordion-item {
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .accordion-item.open {
+      border-color: var(--gold-satin);
+      box-shadow: 0 4px 20px rgba(212,175,55,0.1);
+    }
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      background: rgba(26,43,76,0.4);
+      transition: var(--transition-smooth);
+      gap: 1rem;
+    }
+    .accordion-header:hover { background: rgba(26,43,76,0.8); }
+    .accordion-step {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .accordion-title-text {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-eggshell);
+      flex: 1;
+    }
+    .accordion-icon {
+      color: var(--gold-satin);
+      font-size: 1.2rem;
+      transition: transform 0.35s ease;
+      flex-shrink: 0;
+    }
+    .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .accordion-item.open .accordion-body { max-height: 500px; }
+    .accordion-body-inner {
+      padding: 1.2rem 1.5rem 1.8rem 1.5rem;
+      border-top: 1px solid rgba(212,175,55,0.1);
+    }
+    .accordion-body-inner p {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--text-eggshell);
+      line-height: 1.8;
+    }
+    .accordion-body-inner .mockup-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      color: var(--gold-saffron);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+    .accordion-body-inner .mockup-link:hover {
+      border-bottom-color: var(--gold-saffron);
+      gap: 0.6rem;
+    }
+
+    /* ===== MODAL ===== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      z-index: 5000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-box {
+      background: #0f1f3a;
+      border: 1px solid var(--gold-satin);
+      border-radius: 20px;
+      padding: 0;
+      max-width: 540px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+    }
+    .modal-backdrop.open .modal-box {
+      transform: scale(1) translateY(0);
+    }
+    .modal-top-bar {
+      background: rgba(212,175,55,0.08);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-top-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--gold-satin);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .modal-close {
+      background: none;
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+    .modal-close:hover { color: var(--text-eggshell); border-color: var(--gold-satin); }
+    .modal-email-body {
+      padding: 2rem;
+    }
+    .email-header-row {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .email-field {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+    .email-field-label {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      width: 60px;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .email-field-val {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text-eggshell);
+    }
+    .email-subject-line {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold-saffron);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .email-copy {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text-eggshell);
+      line-height: 1.8;
+    }
+    .email-copy p { margin-bottom: 1rem; }
+    .email-copy strong { color: var(--gold-saffron); }
+    .email-cta {
+      display: block;
+      background: var(--gold-saffron);
+      color: var(--bg-night);
+      text-align: center;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    .crm-zoom-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.1);
+      height: 310px;
+      position: relative;
+      cursor: zoom-in;
+    }
+    .crm-zoom-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: block;
+      transform-origin: center center;
+    }
+    .crm-zoom-card:hover img {
+      transform: scale(2.0); /* Zoom del 200% per leggere precisamente i testi */
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .db-table { font-size: 0.78rem; }
+      .badge[data-tooltip]:hover::after { width: 220px; left: 0; transform: none; }
+      .tabs-content-area { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo-text" data-transition>GZ</a>
+      <a href="chi-sono.html" class="nav-contact" data-transition>CHI SONO</a>
+    </div>
+    <a href="mailto:zorzigiordano@gmail.com" class="nav-contact">CONTATTAMI</a>
+  </nav>
+
+  <!-- ======== BACK BUTTON ======== -->
+  <a href="index.html" class="back-btn" data-transition>
+    <span class="back-arrow">←</span> BACK
+  </a>
+
+  <!-- ======== PAGE CONTENT ======== -->
+  <div class="page-wrapper">
+    <div class="case-study-wrapper">
+
+      <!-- HERO -->
+      <div class="crm-hero-banner">
+        <span class="crm-hero-tag">Caso Studio · ITS ICT Piemonte</span>
+        <h1 class="crm-hero-title">Automazione<br>&amp; Data Engineering per l'ITS</h1>
+        <p class="crm-hero-subtitle">Ottimizzazione del funnel di acquisizione e implementazione del workflow omnicanale "Seconda Chance" per il corso Full Stack Developer.</p>
+      </div>
+
+      <!-- KPI COUNTERS -->
+      <div class="crm-section">
+        <p class="section-eyebrow">I Numeri del Progetto</p>
+        <div class="kpi-grid" id="kpi-grid">
+          <div class="kpi-box">
+            <span class="kpi-number" data-target="50" data-suffix="">0</span>
+            <span class="kpi-label">Candidature Target<br>Full Stack Developer</span>
+          </div>
+          <div class="kpi-box">
+            <span class="kpi-number" data-target="92" data-suffix="%">0%</span>
+            <span class="kpi-label">Employability Rate<br>Garantito</span>
+          </div>
+          <div class="kpi-box">
+            <span class="kpi-number" data-target="100" data-suffix="%">0%</span>
+            <span class="kpi-label">Processo di Recupero<br>Automatizzato</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LA SFIDA: TABS -->
+      <div class="crm-section">
+        <p class="section-eyebrow">La Sfida</p>
+        <h2 class="section-title">Dal Caos dei Dati alla Strategia Omnicanale</h2>
+        <p class="section-desc">L'obiettivo del progetto è stato risolvere la frammentazione dei dati, centralizzando i contatti da fonti eterogenee, ed eliminare i processi di follow-up manuali per recuperare gli studenti inizialmente esclusi o indecisi.</p>
+
+        <div class="tabs-wrapper">
+          <div class="tabs-nav" role="tablist" aria-label="La sfida: scenario e soluzione">
+            <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-scenario" id="tab-scenario" data-tab="scenario">Scenario Iniziale</button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-soluzione" id="tab-soluzione" data-tab="soluzione">Soluzione CRM</button>
+          </div>
+          <div class="tabs-content-area">
+            <div class="tab-panel active" id="panel-scenario" role="tabpanel" aria-labelledby="tab-scenario">
+              <h4>// Criticità Identificate</h4>
+              <ul class="criticita-list">
+                <li data-icon="🗂️">Dati in silos: le candidature erano sparse tra form cartacei, email e fogli Excel non condivisi, senza un database centralizzato.</li>
+                <li data-icon="🕳️">Buco di tracciamento nelle scuole: nessun sistema per monitorare i contatti provenienti dai referenti scolastici e dalle sessioni orientamento.</li>
+                <li data-icon="⚠️">Sovraccarico manuale: i follow-up ai candidati indecisi venivano gestiti manualmente, con alto rischio di dimenticanze e perdita di lead qualificati.</li>
+              </ul>
+            </div>
+            <div class="tab-panel" id="panel-soluzione" role="tabpanel" aria-labelledby="tab-soluzione">
+              <h4>// Benefici della Soluzione CRM</h4>
+              <ul class="benefit-list">
+                <li>Database centralizzato: un unico record per ogni candidato, con storico completo delle interazioni e stato aggiornato in tempo reale.</li>
+                <li>Nurturing automatico: sequenze di email personalizzate attivate automaticamente in base al comportamento del candidato nel funnel.</li>
+                <li>Segmentazione avanzata: filtri normativi per identificare i profili Under 29 idonei all'Alto Apprendistato e ottimizzare il matching con le aziende partner.</li>
+                <li>Dashboard di monitoring: visibilità in tempo reale sull'avanzamento delle candidature per canale, fonte e status.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATA ENGINEERING - NASCOSTA TEMPORANEAMENTE -->
+      <div class="crm-section" style="display: none;">
+        <p class="section-eyebrow">Data Engineering</p>
+        <h2 class="section-title">Il Database: Struttura e Segmentazione</h2>
+        <p class="section-desc">Il punto di partenza di ogni buona automazione è un dato pulito. Ho costruito lo schema di database unificando le informazioni dei file <code style="color:var(--gold-satin);background:rgba(212,175,55,0.1);padding:0.1rem 0.5rem;border-radius:6px;">Digital_Strategist.xlsx</code> e <code style="color:var(--gold-satin);background:rgba(212,175,55,0.1);padding:0.1rem 0.5rem;border-radius:6px;">Full_Stack_Developer.xlsx</code>.</p>
+
+        <div class="db-card">
+          <div class="db-card-header">
+            <div class="db-dot red"></div>
+            <div class="db-dot amber"></div>
+            <div class="db-dot green"></div>
+            <span class="db-card-title">contacts_its_fullstack.db — Estrazione Dati CRM</span>
+          </div>
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Contatto</th>
+                <th>Data Nascita</th>
+                <th>Città</th>
+                <th>Titolo Studio</th>
+                <th>Stato Lead</th>
+                <th>Tipo Placement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>R.A.</td>
+                <td>12/06/2001</td>
+                <td>Torino</td>
+                <td>Diploma</td>
+                <td><span class="badge" style="background: rgba(40,200,64,0.15); color: #28c840; border: 1px solid rgba(40,200,64,0.25);">Completo</span></td>
+                <td><span class="badge" style="background: rgba(245,203,92,0.15); color: var(--gold-saffron); border: 1px solid rgba(245,203,92,0.25);">Apprendistato e Stage</span></td>
+              </tr>
+              <tr>
+                <td>S.A.</td>
+                <td>23/09/2006</td>
+                <td>Torino</td>
+                <td>Diploma Informatica</td>
+                <td><span class="badge" style="background: rgba(40,200,64,0.15); color: #28c840; border: 1px solid rgba(40,200,64,0.25);">Completo</span></td>
+                <td><span class="badge" style="background: rgba(245,203,92,0.15); color: var(--gold-saffron); border: 1px solid rgba(245,203,92,0.25);">Apprendistato e Stage</span></td>
+              </tr>
+              <tr>
+                <td>S.A.</td>
+                <td>20/06/1991</td>
+                <td>Torino</td>
+                <td>Laurea Magistrale</td>
+                <td><span class="badge" style="background: rgba(40,200,64,0.15); color: #28c840; border: 1px solid rgba(40,200,64,0.25);">Completo</span></td>
+                <td><span class="badge" style="background: rgba(137,180,250,0.15); color: #89b4fa; border: 1px solid rgba(137,180,250,0.25);">Solo Stage</span></td>
+              </tr>
+              <tr>
+                <td>E.C.</td>
+                <td>14/05/1994</td>
+                <td>Torino</td>
+                <td>Diploma</td>
+                <td><span class="badge" style="background: rgba(40,200,64,0.15); color: #28c840; border: 1px solid rgba(40,200,64,0.25);">Completo</span></td>
+                <td><span class="badge" style="background: rgba(245,203,92,0.15); color: var(--gold-saffron); border: 1px solid rgba(245,203,92,0.25);">Apprendistato e Stage</span></td>
+              </tr>
+              <tr>
+                <td>G.C.</td>
+                <td>10/02/2004</td>
+                <td>Settimo Torinese</td>
+                <td>Diploma Scientifico</td>
+                <td><span class="badge" style="background: rgba(40,200,64,0.15); color: #28c840; border: 1px solid rgba(40,200,64,0.25);">Completo</span></td>
+                <td><span class="badge" style="background: rgba(245,203,92,0.15); color: var(--gold-saffron); border: 1px solid rgba(245,203,92,0.25);">Apprendistato e Stage</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- WORKFLOW SECONDA CHANCE -->
+      <div class="crm-section">
+        <p class="section-eyebrow">Il Workflow</p>
+        <h2 class="section-title">Mappatura Journey: "Seconda Chance"</h2>
+        <p class="section-desc">Un flusso omnicanale di 4 step progettato per recuperare i candidati indecisi e guidarli verso l'iscrizione con empatia, non pressione.</p>
+
+        <!-- Mappatura Journey Card con Media -->
+        <div class="pdf-placeholder" style="flex-direction: column; height: auto; padding: 1.8rem; gap: 1rem; background: rgba(26,43,76,0.3); border: 1px solid rgba(212,175,55,0.15); align-items: stretch; text-align: left;">
+          <div class="pdf-placeholder-title" style="margin-bottom: 0.5rem; text-align: center;">Mappatura Logica Journey</div>
+          
+          <div class="crm-media-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; width: 100%;">
+            <!-- Immagine 1 - Workflow Mailchimp -->
+            <div class="crm-zoom-card">
+              <img src="CRM/Mailchimp_Workflow.jpg" alt="Workflow Mailchimp" />
+            </div>
+            <!-- Immagine 2 - Mail Mockup -->
+            <div class="crm-zoom-card">
+              <img src="CRM/Mail2_Mockup_GZ.png" alt="Mail Mockup GZ" />
+            </div>
+          </div>
+          
+          <div class="pdf-placeholder-sub" style="margin-top: 0.8rem; text-align: center; font-size: 0.82rem;">Muovi il mouse sulle immagini per ingrandire ed esplorare i dettagli</div>
+        </div>
+
+        <!-- Accordion -->
+        <div class="accordion" id="workflow-accordion">
+
+          <div class="accordion-item" id="acc-1">
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+              <span class="accordion-step">Step 01</span>
+              <span class="accordion-title-text">Consolazione e proposta</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Dopo che lo studente viene escluso dal corso, riceve la prima email che empatizza con lui. Si cerca di rassicurare lo studente a non mollare e a considerare altri corsi.</p>
+                <p style="margin-top:0.8rem; color:var(--text-muted); font-size:0.9rem;"><strong style="color:var(--gold-satin);">Trigger:</strong> Lo studente viene escluso dalla graduatoria del corso "prima scelta".</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" id="acc-2">
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+              <span class="accordion-step">Step 02</span>
+              <span class="accordion-title-text">Abbattimento Barriere</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Il secondo messaggio affronta direttamente l'obiezione principale: <em>"Non so programmare, non fa per me."</em> Il copy usa un tono rassicurante, diretto e concreto per rimuovere la barriera percettiva più alta.</p>
+                <p style="margin-top:0.8rem; color:var(--text-muted); font-size:0.9rem;"><strong style="color:var(--gold-satin);">Trigger:</strong> 3 giorni dopo Step 01.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" id="acc-3">
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+              <span class="accordion-step">Step 03</span>
+              <span class="accordion-title-text">Prospettiva Futura</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Il terzo step sposta il focus dal "come" al "perché": il candidato viene guidato a visualizzare il suo sé futuro — quello che lavora in un'azienda tech, con contratto di apprendistato, con un portfolio reale. Il 92% di employability rate è il dato centrale di questo messaggio.</p>
+                <p style="margin-top:0.8rem; color:var(--text-muted); font-size:0.9rem;"><strong style="color:var(--gold-satin);">Trigger:</strong> 5 giorni dopo Step 02. Invio della testimonianza di un ex-studente.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" id="acc-4">
+            <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+              <span class="accordion-step">Step 04</span>
+              <span class="accordion-title-text">Urgenza</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>L'ultimo step introduce un elemento di scarsità reale: i posti disponibili sono limitati (target: 50 iscritti). Il messaggio finale combina urgenza con un'ultima CTA diretta per prenotare un colloquio conoscitivo, eliminando ogni attrito burocratico.</p>
+                <p style="margin-top:0.8rem; color:var(--text-muted); font-size:0.9rem;"><strong style="color:var(--gold-satin);">Trigger:</strong> 7 giorni dopo Step 03. Ultimo tentativo automatico.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA FINALE -->
+      <div style="text-align: center; margin: 6rem 0 4rem 0;">
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--gold-saffron); margin-bottom: 1.2rem;">
+          Vuoi ottimizzare l'efficacia della tua pipeline di lead?
+        </h3>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); margin-bottom: 2rem; max-width: 500px; margin-left:auto; margin-right:auto;">
+          Progettiamo insieme un ecosistema CRM su misura per il tuo funnel di acquisizione.
+        </p>
+        <a href="mailto:zorzigiordano@gmail.com" class="btn-primary">PROGETTIAMO INSIEME</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== MODAL: MOCKUP MAIL ======== -->
+  <div class="modal-backdrop" id="mail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-top-bar">
+        <span class="modal-top-label" id="modal-title">📧 Mockup Mail — Step 02</span>
+        <button class="modal-close" id="close-modal-btn" aria-label="Chiudi modale">✕</button>
+      </div>
+      <div class="modal-email-body">
+        <div class="email-header-row">
+          <div class="email-field">
+            <span class="email-field-label">Da:</span>
+            <span class="email-field-val">ITS ICT Piemonte &lt;orientamento@itsict.it&gt;</span>
+          </div>
+          <div class="email-field">
+            <span class="email-field-label">A:</span>
+            <span class="email-field-val">Marco R. &lt;marco.r@gmail.com&gt;</span>
+          </div>
+          <div class="email-field">
+            <span class="email-field-label">Oggetto:</span>
+            <span class="email-field-val" style="font-weight:600; color:var(--gold-saffron);">
+              Ma io non so programmare! Tranquillo, partiamo da zero.
+            </span>
+          </div>
+        </div>
+        <div class="email-copy">
+          <p>Ciao Marco,</p>
+          <p>
+            So cosa stai pensando: <strong>"Questo corso fa per chi già sa programmare. Io da zero non ce la faccio."</strong>
+          </p>
+          <p>
+            La verità? Ogni studente che oggi lavora in azienda grazie a noi ha iniziato esattamente da dove sei tu adesso — zero righe di codice scritte.
+          </p>
+          <p>
+            Il nostro metodo parte dai <strong>fondamentali logici</strong>, non dalla sintassi. Prima impari a pensare come un developer, poi il codice viene da sé. 
+          </p>
+          <p>
+            15 minuti al telefono, nessun impegno. Te lo spieghiamo noi.
+          </p>
+          <p style="color: var(--text-muted); font-size:0.88rem;">
+            A presto,<br>
+            Il team orientamento ITS ICT Piemonte
+          </p>
+        </div>
+        <div class="email-cta">PRENOTA UNA CHIAMATA GRATUITA →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== EXPAND OVERLAY ======== -->
+  <div id="expand-overlay" class="expand-overlay"></div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-left">GZ</div>
+    <div class="footer-center">© 2026 All rights reserved</div>
+    <div class="footer-right" style="gap: 1.5rem; display: flex; align-items: center;">
+      <a href="https://www.linkedin.com/in/giordano-zorzi-35bb4b272/" target="_blank" style="text-decoration: none;" aria-label="LinkedIn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#0077b5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/rewild_ets/" target="_blank" style="text-decoration: none;" aria-label="Instagram">
+        <svg width="28" height="28" viewBox="0 0 24 24"><defs><linearGradient id="ig-grad-crm" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig-grad-crm)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="mailto:zorzigiordano@gmail.com" style="text-decoration: none;" aria-label="Email">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ===== PAGE TRANSITION ===== */
+      const overlay = document.getElementById('expand-overlay');
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('[data-transition]');
+        if (!link || !link.getAttribute('href') || link.getAttribute('href') === '#') return;
+        e.preventDefault();
+        const ox = e.clientX || window.innerWidth / 2, oy = e.clientY || window.innerHeight / 2;
+        overlay.style.clipPath = `circle(0px at ${ox}px ${oy}px)`;
+        overlay.classList.add('active');
+        overlay.offsetHeight;
+        overlay.style.clipPath = `circle(200vmax at ${ox}px ${oy}px)`;
+        setTimeout(() => {
+          const isBackBtn = link.classList.contains('back-btn');
+          if (isBackBtn && window.history.length > 1 && document.referrer.includes(window.location.hostname)) {
+            window.history.back();
+          } else {
+            window.location.href = link.getAttribute('href');
+          }
+        }, 850);
+      });
+
+      /* ===== KPI COUNTERS ===== */
+      function animateCounter(el, target, suffix) {
+        let start = 0;
+        const duration = 1800;
+        const step = Math.ceil(target / (duration / 16));
+        const timer = setInterval(() => {
+          start = Math.min(start + step, target);
+          el.textContent = start + suffix;
+          if (start >= target) clearInterval(timer);
+        }, 16);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            document.querySelectorAll('.kpi-number').forEach(el => {
+              const target = parseInt(el.dataset.target, 10);
+              const suffix = el.dataset.suffix || '';
+              animateCounter(el, target, suffix);
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      const kpiGrid = document.getElementById('kpi-grid');
+      if (kpiGrid) observer.observe(kpiGrid);
+
+      /* ===== TABS ===== */
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.tab;
+          tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+          document.getElementById('panel-' + target).classList.add('active');
+        });
+      });
+
+      /* ===== ACCORDION ===== */
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.closest('.accordion-item');
+          const isOpen = item.classList.contains('open');
+          // close all
+          document.querySelectorAll('.accordion-item').forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+          });
+          // open clicked if it was closed
+          if (!isOpen) {
+            item.classList.add('open');
+            header.setAttribute('aria-expanded', 'true');
+          }
+        });
+        header.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
+        });
+      });
+
+      /* ===== MODAL ===== */
+      const modal = document.getElementById('mail-modal');
+      const openBtn = document.getElementById('open-modal-btn');
+      const closeBtn = document.getElementById('close-modal-btn');
+
+      function openModal() {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        openBtn.focus();
+      }
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (openBtn) openBtn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+      /* ===== ZOOM PAN EFFECT FOR CRM CARDS ===== */
+      document.querySelectorAll('.crm-zoom-card').forEach(card => {
+        const img = card.querySelector('img');
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          img.style.transformOrigin = `${x}% ${y}%`;
+        });
+        card.addEventListener('mouseleave', () => {
+          img.style.transformOrigin = 'center center';
+        });
+      });
+
+    })();
+  </script>
+  <!-- Form nascosto per il rilevamento automatico di Netlify Forms -->
+  <form name="contact-portfolio" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="nome" />
+    <input type="text" name="occupazione" />
+    <input type="text" name="colpito" />
+    <textarea name="richiesta"></textarea>
+  </form>
+  <script src="contact.js"></script>
+</body>
+</html>

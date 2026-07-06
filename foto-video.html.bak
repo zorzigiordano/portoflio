@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foto & Video — Giordano Zorzi</title>
+  <meta name="description" content="Visual Storytelling & Paid Media Insights per Rewild ETS.">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .fotovideo-hero {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(to bottom, rgba(26, 43, 76, 0.4), var(--bg-night)), #3a2b22;
+      border-radius: 20px;
+      margin-bottom: 4rem;
+      animation: slideUp 0.6s ease both;
+    }
+    @media (max-width: 900px) { .fotovideo-hero { height: 250px; } }
+    
+    /* Placeholder Box Style */
+    .visual-placeholder {
+      width: 100%;
+      height: 450px;
+      border: 1px dashed var(--gold-satin);
+      border-radius: 12px;
+      background: rgba(26, 43, 76, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .visual-placeholder span {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo-text" data-transition>GZ</a>
+      <a href="chi-sono.html" class="nav-contact" data-transition>CHI SONO</a>
+    </div>
+    <a href="contatti.html" class="nav-contact" data-transition>CONTATTI</a>
+  </nav>
+
+  <a href="index.html" class="back-btn" data-transition><span class="back-arrow">←</span> BACK</a>
+
+  <div class="page-wrapper">
+    <div class="case-study-wrapper">
+      <div class="fotovideo-hero"></div>
+      
+      <div class="project-header" style="text-align: center; max-width: 800px; margin: 0 auto 5rem auto;">
+        <h1 class="project-title" style="font-size: clamp(2.2rem, 5vw, 3.5rem);">Visual Storytelling & Paid Media Insights</h1>
+        <p class="project-tagline">"Content creation sul campo, gestione asset tramite AI e metriche di copertura su Instagram."</p>
+      </div>
+
+      <div class="case-intro">
+        <div class="case-intro-block">
+          <h3>// LA SFIDA</h3>
+          <p>
+            Effettuare il cambio d'identità della pagina da "Hilluminati Music Festival" a "Rewild ETS", sponsorizzando l'evento di pasquetta e massimizzando la visibilità sui canali social con un budget pubblicitario ottimizzato.
+          </p>
+        </div>
+        <div class="case-intro-block">
+          <h3>// LA STRATEGIA</h3>
+          <p>
+            <strong>Content Creation:</strong> Produzione indipendente di 180 GB di materiale multimediale in 24 ore. Utilizzo di Fujifilm X-T30 per gli scatti fotografici e DJI Osmo Action 3 per le riprese video e i vlog.
+            <br><br>
+            <strong>AI Inpainting:</strong> Utilizzo dell'Intelligenza Artificiale generativa in post-produzione per il riuso creativo di asset e foto di repertorio di vecchi eventi, adattandoli graficamente alle nuove campagne social.
+          </p>
+        </div>
+      </div>
+
+      <!-- VISUALS: SCATTI SUL CAMPO -->
+      <div class="project-header" style="text-align: center; margin-top: 8rem;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-saffron);">Produzione Sul Campo</h2>
+      </div>
+      
+      <div class="device-container" style="display: block;">
+        <div class="visual-placeholder" style="max-width: 1000px; margin: 0 auto; height: 500px;">
+          <span>[Placeholder: Galleria fotografica Fujifilm X-T30 (Scatti sul campo)]</span>
+        </div>
+      </div>
+
+      <!-- VISUALS: INSTAGRAM INSIGHTS -->
+      <div class="project-header" style="text-align: center; margin-top: 10rem; margin-bottom: 4rem;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-saffron);">Sponsorizzate & Performance (Instagram Ads)</h2>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); max-width: 600px; margin: 1.5rem auto 0 auto;">
+          Gestione e monitoraggio della campagna paid su Instagram rivolta a un target locale.
+        </p>
+      </div>
+
+      <div class="device-container" style="display: block;">
+        <div class="visual-placeholder" style="max-width: 800px; margin: 0 auto; height: 400px;">
+          <span>[Placeholder: Screenshot degli Insights ufficiali di Instagram Ads (Metriche di copertura e Clic)]</span>
+        </div>
+      </div>
+
+      <!-- I RISULTATI -->
+      <div class="metrics-section" style="margin-top: 10rem;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--text-eggshell); margin-bottom: 2.5rem;">L'Impatto in Numeri</h2>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; text-align: center;">
+          <div>
+            <div style="font-size: 3rem; color: var(--gold-saffron); font-weight: 700; line-height: 1;">39,82€</div>
+            <div style="font-size: 1.1rem; color: var(--text-muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Spesa Complessiva</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; color: var(--gold-saffron); font-weight: 700; line-height: 1;">3.601</div>
+            <div style="font-size: 1.1rem; color: var(--text-muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Copertura Account</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; color: var(--gold-saffron); font-weight: 700; line-height: 1;">12.392</div>
+            <div style="font-size: 1.1rem; color: var(--text-muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Impression</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; color: var(--gold-saffron); font-weight: 700; line-height: 1;">99</div>
+            <div style="font-size: 1.1rem; color: var(--text-muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Clic Totali sul Link</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA FINALE -->
+      <div style="text-align: center; margin: 10rem 0 4rem 0;">
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--gold-saffron); margin-bottom: 1.5rem;">Vuoi dare un'identità visiva d'impatto al tuo brand?</h3>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); margin-bottom: 2rem;">Uniamo creatività sul campo e data analysis per contenuti che convertono e si fanno notare.</p>
+        <a href="contatti.html" class="btn-primary" data-transition>CREIAMO I TUOI CONTENUTI</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="expand-overlay" class="expand-overlay"></div>
+  <footer class="site-footer">
+    <div class="footer-left">GZ</div>
+    <div class="footer-center">© 2026 All rights reserved</div>
+    <div class="footer-right" style="gap: 1.5rem; display: flex; align-items: center;">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/giordano-zorzi" target="_blank" style="text-decoration: none;" aria-label="LinkedIn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#0077b5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/zorzi.giordano/" target="_blank" style="text-decoration: none;" aria-label="Instagram">
+        <svg width="28" height="28" viewBox="0 0 24 24">
+          <defs>
+            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f09433" />
+              <stop offset="25%" stop-color="#e6683c" />
+              <stop offset="50%" stop-color="#dc2743" />
+              <stop offset="75%" stop-color="#cc2366" />
+              <stop offset="100%" stop-color="#bc1888" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <!-- Email -->
+      <a href="mailto:info@giordanozorzi.it" target="_blank" style="text-decoration: none;" aria-label="Email">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#ea4335"><path d="M12 12.713l11.985-8.713h-23.97l11.985 8.713zm0 2.574l-12-8.725v11.438h24v-11.438l-12 8.725z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      const overlay = document.getElementById('expand-overlay');
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('[data-transition]');
+        if (!link || !link.getAttribute('href') || link.getAttribute('href') === '#') return;
+        e.preventDefault();
+        
+        const ox = e.clientX || window.innerWidth / 2, oy = e.clientY || window.innerHeight / 2;
+        overlay.style.clipPath = `circle(0px at ${ox}px ${oy}px)`;
+        overlay.classList.add('active');
+        overlay.offsetHeight;
+        overlay.style.clipPath = `circle(200vmax at ${ox}px ${oy}px)`;
+        
+        setTimeout(() => {
+          const isBackBtn = link.classList.contains('back-btn');
+          if (isBackBtn && window.history.length > 1 && document.referrer.includes(window.location.hostname)) {
+            window.history.back();
+          } else {
+            window.location.href = link.getAttribute('href');
+          }
+        }, 850);
+      });
+    })();
+  </script>
+</body>
+</html>

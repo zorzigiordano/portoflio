@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rewild: Narrazione Visiva e Campagne Social — Giordano Zorzi</title>
+  <meta name="description" content="Caso studio di comunicazione social per il festival Rewild ad Asti. Identità del marchio e produzione multimediale.">
+  <meta name="author" content="Giordano Zorzi">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* ===== HERO ===== */
+    .rewild-hero {
+      width: 100%;
+      min-height: 340px;
+      background: linear-gradient(rgba(11, 29, 58, 0.82), rgba(26, 43, 76, 0.82)), url('Visual & Caption/rewildgrigliata.jpg') center/cover no-repeat;
+      border-radius: 20px;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.6s ease both;
+    }
+    .rewild-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(212,175,55,0.02) 0px,
+        rgba(212,175,55,0.02) 1px,
+        transparent 1px,
+        transparent 40px
+      );
+    }
+    .rewild-hero-tag {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: #ff6b6b;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ff6b6b;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .rewild-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .rewild-hero-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: rgba(242,236,221,0.75);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* ===== SECTION COMMONS ===== */
+    .section-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text-eggshell);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-desc {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+    .rewild-section { margin-bottom: 5.5rem; }
+
+    /* ===== BENTO GRID ===== */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .bento-box {
+      background: rgba(26,43,76,0.5);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 18px;
+      padding: 2rem;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-satin), transparent);
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+    .bento-box:hover { border-color: var(--gold-satin); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(212,175,55,0.08); }
+    .bento-box:hover::before { opacity: 1; }
+    .bento-box.wide { grid-column: 1 / -1; }
+    .bento-box-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .bento-box-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-eggshell);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+    .bento-box-text {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Tags ToV */
+    .tov-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .tov-tag {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid;
+      cursor: default;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .tov-tag:hover { transform: scale(1.05); }
+    .tov-tag.amichevole { color: #7ecf9f; border-color: #7ecf9f; background: rgba(126,207,159,0.08); }
+    .tov-tag.ironico    { color: #f5cb5c; border-color: #f5cb5c; background: rgba(245,203,92,0.08); }
+    .tov-tag.ispirante  { color: #89b4fa; border-color: #89b4fa; background: rgba(137,180,250,0.08); }
+    .tov-tag.satirico   { color: #f38ba8; border-color: #f38ba8; background: rgba(243,139,168,0.08); }
+
+    /* Buyer Personas */
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .persona-card {
+      background: rgba(11,29,58,0.6);
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 14px;
+      padding: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      overflow: hidden;
+    }
+    .persona-card:hover { border-color: var(--gold-satin); background: rgba(26,43,76,0.8); }
+    .persona-card.expanded { border-color: var(--gold-satin); background: rgba(26,43,76,0.9); }
+    .persona-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg-jet), var(--gold-satin));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .persona-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-eggshell);
+      margin-bottom: 0.2rem;
+    }
+    .persona-age {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+    .persona-detail {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .persona-card.expanded .persona-detail { max-height: 200px; opacity: 1; }
+    .persona-hint {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: rgba(212,175,55,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+    .persona-card.expanded .persona-hint { display: none; }
+
+    /* ===== GALLERY FILTERS ===== */
+    .gallery-filters {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .filter-btn:hover { color: var(--text-eggshell); border-color: var(--gold-satin); }
+    .filter-btn.active { background: var(--gold-satin); color: var(--bg-night); border-color: var(--gold-satin); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .gallery-item {
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(26,43,76,0.4);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+    .gallery-item:hover { border-color: var(--gold-satin); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(212,175,55,0.1); }
+    .gallery-item.hidden { display: none; }
+    .gallery-media-container {
+      width: 100%;
+      height: 310px; /* Altezza ottimale per visualizzare 2 righe su PC */
+      position: relative;
+      overflow: hidden;
+      background: rgba(5, 14, 30, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(212,175,55,0.08);
+    }
+    .gallery-media-placeholder {
+      width: 100%;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(11,29,58,0.55);
+      border-bottom: 1px solid rgba(212,175,55,0.08);
+      position: relative;
+    }
+    .gallery-media-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      border: 1px dashed rgba(212,175,55,0.25);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+    .gallery-media-placeholder-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      opacity: 0.85;
+      color: var(--gold-satin);
+      filter: drop-shadow(0 2px 8px rgba(212,175,55,0.2));
+    }
+    .gallery-media-placeholder-size {
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .gallery-media-container img, .gallery-media-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover .gallery-media-container img,
+    .gallery-item:hover .gallery-media-container video {
+      transform: scale(1.02);
+    }
+    .gallery-info {
+      padding: 1.1rem;
+      text-align: left;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .gallery-item-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-satin);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .gallery-item-sub {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ===== AI INPAINTING SLIDER ===== */
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 2rem auto 0 auto;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.3);
+      cursor: col-resize;
+      user-select: none;
+    }
+    .slider-side {
+      position: absolute;
+      top: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 1.5rem;
+    }
+    .slider-side-left {
+      left: 0;
+      background: linear-gradient(135deg, #1a2b4c, #223761);
+      width: 50%;
+    }
+    .slider-side-right {
+      right: 0;
+      background: linear-gradient(135deg, #0e3a2f, #1a5c40);
+      width: 50%;
+    }
+    .slider-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+    }
+    .slider-icon { font-size: 2.5rem; opacity: 0.5; }
+    .slider-sublabel {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      line-height: 1.4;
+    }
+    .slider-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold-saffron);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      box-shadow: 0 0 12px rgba(212,175,55,0.6);
+    }
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--gold-saffron);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      color: var(--bg-night);
+      font-size: 1rem;
+      font-weight: 700;
+      z-index: 11;
+      cursor: col-resize;
+    }
+    .slider-clip {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      overflow: hidden;
+      z-index: 5;
+    }
+    .slider-clip .slider-side-left { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    /* ===== INSTAGRAM DASHBOARD ===== */
+    .ig-dashboard {
+      background: rgba(26,43,76,0.5);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .ig-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ig-logo {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .ig-title-block { flex: 1; }
+    .ig-title {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-eggshell);
+    }
+    .ig-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .ig-badge {
+      background: rgba(126,207,159,0.15);
+      color: #7ecf9f;
+      border: 1px solid rgba(126,207,159,0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .ig-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .ig-metric {
+      background: rgba(11,29,58,0.5);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+    }
+    .ig-metric-value {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-saffron);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .ig-metric-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .ig-expand-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: 1px solid rgba(212,175,55,0.2);
+      color: var(--gold-satin);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .ig-expand-btn:hover { border-color: var(--gold-satin); background: rgba(212,175,55,0.06); }
+    .ig-expand-icon { transition: transform 0.3s ease; }
+    .ig-expand-btn.open .ig-expand-icon { transform: rotate(180deg); }
+    .ig-demo-section {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+    .ig-demo-section.open { max-height: 400px; }
+    .ig-demo-inner {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    .ig-demo-title {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .demo-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .demo-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .demo-bar-label {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-eggshell);
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .demo-bar-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .demo-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--gold-satin), var(--gold-saffron));
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .demo-bar-pct {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-saffron);
+      width: 45px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ===== PED TABS & PANES ===== */
+    .ped-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .ped-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition-smooth);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ped-tab-btn:hover {
+      color: var(--text-eggshell);
+    }
+    .ped-tab-btn.active {
+      color: var(--gold-satin);
+    }
+    .ped-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.6rem;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--gold-satin);
+    }
+    .ped-panes {
+      position: relative;
+      margin-top: 1rem;
+    }
+    .ped-pane {
+      display: none;
+      animation: fadeIn 0.4s ease both;
+    }
+    .ped-pane.active {
+      display: block;
+    }
+    .ped-pane-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1.2fr;
+      gap: 1.5rem;
+      background: rgba(26,43,76,0.4);
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 14px;
+      padding: 1.8rem;
+    }
+    .ped-pane-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      justify-content: flex-start;
+    }
+    .ped-pane-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-satin);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .ped-pane-rubriche {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-eggshell);
+      line-height: 1.4;
+    }
+    .ped-pane-text {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .ped-freq-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(212,175,55,0.1);
+      color: var(--gold-saffron);
+      border: 1px solid rgba(212,175,55,0.25);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .btn-secondary {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold-saffron);
+      background: transparent;
+      border: 1px solid var(--gold-saffron);
+      padding: 0.8rem 1.6rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-secondary:hover {
+      background: var(--gold-saffron);
+      color: var(--bg-night);
+      box-shadow: 0 0 15px rgba(245, 203, 92, 0.25);
+    }
+
+    .txt-highlight {
+      color: var(--gold-saffron);
+      font-weight: 600;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .personas-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .ig-metrics { grid-template-columns: repeat(2, 1fr); }
+      .gallery-media-container { height: 240px; } /* Ridimensionato per tablet/mobile */
+    }
+    @media (max-width: 500px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .ig-metrics { grid-template-columns: 1fr 1fr; }
+      .gallery-media-container { height: 210px; } /* Ridimensionato per schermi molto piccoli */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo-text" data-transition>GZ</a>
+      <a href="chi-sono.html" class="nav-contact" data-transition>CHI SONO</a>
+    </div>
+    <a href="mailto:zorzigiordano@gmail.com" class="nav-contact">CONTATTAMI</a>
+  </nav>
+
+  <!-- ======== BACK BUTTON ======== -->
+  <a href="index.html" class="back-btn" data-transition>
+    <span class="back-arrow">←</span> BACK
+  </a>
+
+  <!-- ======== PAGE CONTENT ======== -->
+  <div class="page-wrapper">
+    <div class="case-study-wrapper">
+
+      <!-- HERO -->
+      <div class="rewild-hero">
+        <span class="rewild-hero-tag">Progetto Social Media per Rewild</span>
+        <h1 class="rewild-hero-title">Rebranding ed Evento di Pasquetta</h1>
+        <p class="rewild-hero-subtitle">Costruzione dell'identità di brand, produzione multimediale sul campo e ottimizzazione dei contenuti.</p>
+      </div>
+
+      <!-- BENTO GRID STRATEGICA -->
+      <div class="rewild-section">
+        <p class="section-eyebrow">La Strategia</p>
+        <h2 class="section-title">Pilastri di Posizionamento e Identità</h2>
+
+        <div class="bento-grid">
+          <!-- UVP -->
+          <div class="bento-box">
+            <div class="bento-box-title">L'ambizione di Rewild:</div>
+            <p class="bento-box-text" style="font-size: 1.05rem; line-height: 1.7; margin-top: 1rem;">
+              Evidenziare la presenza dei luoghi del nostro territorio, sensibilizzando al recupero di <span class="txt-highlight">spazi urbani ed extraurbani trascurati, sottoutilizzati e abbandonati</span>, unendo <span class="txt-highlight">istituzioni e cittadini</span> tramite eventi musicali ed artistici.
+            </p>
+          </div>
+
+          <!-- TOV -->
+          <div class="bento-box">
+            <div class="bento-box-eyebrow">Tono di Voce e Messaggio Chiave</div>
+            <div class="bento-box-title">Professionale ma non abbottonato.</div>
+            <p class="bento-box-text">
+              Il tono di voce di Rewild è <strong>autentico, irriverente, satirico, adatto alle famiglie, umile, spensierato, ispirante, fluido e trasversale.</strong>
+              <br><br>
+              <strong>Messaggio Chiave:</strong> <em>"Divertiti, crea, esplora, unisciti agli altri: sii pure naturale o sbottonato ma <span class="txt-highlight">datti un contegno che ci sono dei bambini</span>."</em>
+            </p>
+            <div class="tov-tags">
+              <span class="tov-tag amichevole">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                Autentico
+              </span>
+              <span class="tov-tag ironico">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                Irriverente
+              </span>
+              <span class="tov-tag ispirante">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Ispirante
+              </span>
+              <span class="tov-tag satirico">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                Adatto alle Famiglie
+              </span>
+            </div>
+          </div>
+        </div>
+            <!-- GLI EVENTI -->
+      <div class="rewild-section">
+        <p class="section-eyebrow">Gli Eventi</p>
+        <h2 class="section-title">I Format degli Eventi</h2>
+
+        <!-- Format Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-top: 2rem; margin-bottom: 0;">
+          <!-- Pasquetta Rewild -->
+          <div class="bento-box" style="background: linear-gradient(rgba(11, 29, 58, 0.82), rgba(26, 43, 76, 0.82)), url('Visual & Caption/pasquetta.jpg') center/cover no-repeat;">
+            <div class="bento-box-title">Pasquetta Rewild</div>
+            <p class="bento-box-text" style="font-size: 0.88rem; line-height: 1.6;">
+              L'evento di <span class="txt-highlight">apertura di stagione</span>. <span class="txt-highlight">Performance artistiche in live</span>, mercatini del libro, attività di volontariato e musica all'aria aperta.
+              <br><br>
+              Scherzoso, irriverente, orientato all'<span class="txt-highlight">aggregazione sociale e comunitaria</span>.
+            </p>
+          </div>
+          <!-- Hilluminati -->
+          <div class="bento-box" style="background: linear-gradient(rgba(11, 29, 58, 0.82), rgba(26, 43, 76, 0.82)), url('Visual & Caption/hmf-white-yellow.png') center/cover no-repeat;">
+            <div class="bento-box-title">Hilluminati</div>
+            <p class="bento-box-text" style="font-size: 0.88rem; line-height: 1.6;">
+              Il festival di debutto. Valorizzazione di <span class="txt-highlight">strutture storiche</span> (chiese sconsacrate, giardini abbandonati) tramite installazioni di <span class="txt-highlight">luce artificiale</span> e sonorità elettroniche fresche. 
+              <br><br>
+              Epico, lirico e a tratti ironico. Un'esperienza di <span class="txt-highlight">forte impatto visivo</span>.
+            </p>
+          </div>
+          <!-- Pool Up -->
+          <div class="bento-box" style="background: linear-gradient(rgba(11, 29, 58, 0.82), rgba(26, 43, 76, 0.82)), url('Visual & Caption/poolup.jpg') center/cover no-repeat;">
+            <div class="bento-box-title">Pool Up</div>
+            <p class="bento-box-text" style="font-size: 0.88rem; line-height: 1.6;">
+              L'evento di <span class="txt-highlight">punta diurno</span>. Una domenica in piscina con DJ set, improntata alla <span class="txt-highlight">spensieratezza e all'inclusività</span> per giovani e famiglie.
+              <br><br>
+              Semplice, colorato, informale. Comunicazione orientata all'<span class="txt-highlight">intrattenimento leggero</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALLERIA (PRODUZIONE MULTIMEDIALE) - NASCOSTA TEMPORANEAMENTE -->
+      <div class="rewild-section" style="display: none;">
+        <h2 class="section-title">Produzione Multimediale</h2>
+        <p class="section-desc">Selezione di alcuni dei contenuti prodotti ed editati per la pubblicazione sui canali social dell'associazione.</p>
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Item 1 - Annuncio -->
+          <div class="gallery-item" data-category="ai-riuso">
+            <div class="gallery-media-container vertical">
+              <img src="Visual & Caption/annuncio.jpg" alt="Annuncio Pasquetta" loading="lazy">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-item-label"></div>
+              <div class="gallery-item-sub"></div>
+            </div>
+          </div>
+          <!-- Item 2 - Prenotazione -->
+          <div class="gallery-item" data-category="ai-riuso">
+            <div class="gallery-media-container vertical">
+              <img src="Visual & Caption/prenotazione.jpg" alt="Prenotazione" loading="lazy">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-item-label"></div>
+              <div class="gallery-item-sub"></div>
+            </div>
+          </div>
+          <!-- Item 3 - Video Engagement 2 (Verticale) -->
+          <div class="gallery-item" data-category="fuji">
+            <div class="gallery-media-container vertical">
+              <video src="Visual & Caption/Instagram e Facebook/engagement2.mp4" controls preload="metadata" playsinline></video>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-item-label"></div>
+              <div class="gallery-item-sub"></div>
+            </div>
+          </div>
+          <!-- Item 4 - Video Eventi 4 (Verticale) -->
+          <div class="gallery-item" data-category="fuji">
+            <div class="gallery-media-container vertical">
+              <video src="Visual & Caption/Instagram e Facebook/eventi4.mp4" controls preload="metadata" playsinline></video>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-item-label"></div>
+              <div class="gallery-item-sub"></div>
+            </div>
+          </div>
+          <!-- Item 5 - Moscato Zen (Orizzontale, Wide) -->
+          <div class="gallery-item wide" data-category="fuji">
+            <div class="gallery-media-container horizontal">
+              <video src="Visual & Caption/Youtube/moscato zen.mp4" controls preload="metadata" playsinline></video>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-item-label"></div>
+              <div class="gallery-item-sub"></div>
+            </div>
+          </div>
+          <!-- Item 6 - Moonray (Orizzontale, Wide) -->
+          <div class="gallery-item wide" data-category="ai-riuso">
+            <div class="gallery-media-container horizontal">
+              <img src="Visual & Caption/moonray.png" alt="Moonray DJ Set" loading="lazy">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-item-label"></div>
+              <div class="gallery-item-sub"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTAGRAM INSIGHTS DASHBOARD -->
+      <div class="rewild-section">
+        <p class="section-eyebrow">Prestazioni e Analisi</p>
+        <h2 class="section-title">Risultati di Instagram</h2>
+        <p class="section-desc">Risultati della campagna a pagamento su Meta Business Suite, con budget € 40 spesi in 10 giorni.</p>
+
+        <div class="ig-dashboard">
+          <div class="ig-header">
+            <div class="ig-title-block">
+              <div class="ig-title">I risultati della sponsorizzazione</div>
+            </div>
+          </div>
+
+          <div class="ig-metrics" id="ig-metrics">
+            <div class="ig-metric">
+              <span class="ig-metric-value" data-target-str="€ 39,82" id="ig-spesa">€ 0</span>
+              <span class="ig-metric-label">Spesa Campagna</span>
+            </div>
+            <div class="ig-metric">
+              <span class="ig-metric-value" data-target="3601" data-suffix="" id="ig-copertura">0</span>
+              <span class="ig-metric-label">Account Raggiunti</span>
+            </div>
+            <div class="ig-metric">
+              <span class="ig-metric-value" data-target="12392" data-suffix="" id="ig-impression">0</span>
+              <span class="ig-metric-label">Visualizzazioni Totali</span>
+            </div>
+            <div class="ig-metric">
+              <span class="ig-metric-value" data-target="99" data-suffix="" id="ig-clic">0</span>
+              <span class="ig-metric-label">Clic sul Link</span>
+            </div>
+          </div>
+
+          <button class="ig-expand-btn" id="ig-expand-btn" aria-expanded="false" aria-controls="ig-demo">
+            <span>Dati Demografici</span>
+            <span class="ig-expand-icon">▼</span>
+          </button>
+
+          <div class="ig-demo-section" id="ig-demo">
+            <div class="ig-demo-inner">
+              <div class="ig-demo-title">// Suddivisione per Genere</div>
+              <div class="demo-bars">
+                <div class="demo-bar-row">
+                  <span class="demo-bar-label">Uomini</span>
+                  <div class="demo-bar-track">
+                    <div class="demo-bar-fill" data-width="50.3"></div>
+                  </div>
+                  <span class="demo-bar-pct">50,3%</span>
+                </div>
+                <div class="demo-bar-row">
+                  <span class="demo-bar-label">Donne</span>
+                  <div class="demo-bar-track">
+                    <div class="demo-bar-fill" data-width="48.4"></div>
+                  </div>
+                  <span class="demo-bar-pct">48,4%</span>
+                </div>
+                <div class="demo-bar-row">
+                  <span class="demo-bar-label">Non spec.</span>
+                  <div class="demo-bar-track">
+                    <div class="demo-bar-fill" data-width="1.3"></div>
+                  </div>
+                  <span class="demo-bar-pct">1,3%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOWNLOAD MATERIALI -->
+      <div class="rewild-section" style="text-align: center; border-top: 1px solid rgba(212,175,55,0.1); padding-top: 4rem;">
+        <h2 class="section-title">Output Finale</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto; margin-bottom: 2.5rem;">Scarica la presentazione originale del progetto per analizzare nel dettaglio la strategia social e i visual realizzati.</p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+          <a href="REWILD/Rewild - Social Media.pdf" download="Rewild - Social Media.pdf" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+            Presentazione
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA FINALE -->
+      <div style="text-align: center; margin: 4rem 0 4rem 0;">
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--gold-saffron); margin-bottom: 1.2rem;">
+          Il tuo evento merita più di qualche storia improvvisata.
+        </h3>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); margin-bottom: 2rem; max-width: 500px; margin-left:auto; margin-right:auto;">
+          Dal piano editoriale alla produzione sul campo, fino alle campagne pubblicitarie.
+        </p>
+        <a href="mailto:zorzigiordano@gmail.com" class="btn-primary">PARLIAMONE</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== EXPAND OVERLAY ======== -->
+  <div id="expand-overlay" class="expand-overlay"></div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-left">GZ</div>
+    <div class="footer-center">© 2026 Tutti i diritti riservati</div>
+    <div class="footer-right" style="gap: 1.5rem; display: flex; align-items: center;">
+      <a href="https://www.linkedin.com/in/giordano-zorzi-35bb4b272/" target="_blank" style="text-decoration: none;" aria-label="LinkedIn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#0077b5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/rewild_ets/" target="_blank" style="text-decoration: none;" aria-label="Instagram">
+        <svg width="28" height="28" viewBox="0 0 24 24"><defs><linearGradient id="ig-grad-sm" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig-grad-sm)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="mailto:zorzigiordano@gmail.com" style="text-decoration: none;" aria-label="Email">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ===== PAGE TRANSITION ===== */
+      const overlay = document.getElementById('expand-overlay');
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('[data-transition]');
+        if (!link || !link.getAttribute('href') || link.getAttribute('href') === '#') return;
+        e.preventDefault();
+        const ox = e.clientX || window.innerWidth / 2, oy = e.clientY || window.innerHeight / 2;
+        overlay.style.clipPath = `circle(0px at ${ox}px ${oy}px)`;
+        overlay.classList.add('active');
+        overlay.offsetHeight;
+        overlay.style.clipPath = `circle(200vmax at ${ox}px ${oy}px)`;
+        setTimeout(() => {
+          const isBackBtn = link.classList.contains('back-btn');
+          if (isBackBtn && window.history.length > 1 && document.referrer.includes(window.location.hostname)) {
+            window.history.back();
+          } else {
+            window.location.href = link.getAttribute('href');
+          }
+        }, 850);
+      });
+
+      /* ===== GALLERY FILTERS ===== */
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          document.querySelectorAll('.gallery-item').forEach(item => {
+            if (filter === 'all' || item.dataset.category === filter) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+
+
+      /* ===== IG COUNTERS ===== */
+      function animateNum(el, target) {
+        let start = 0;
+        const duration = 1600;
+        const step = Math.max(1, Math.ceil(target / (duration / 16)));
+        const timer = setInterval(() => {
+          start = Math.min(start + step, target);
+          el.textContent = start.toLocaleString('it-IT');
+          if (start >= target) clearInterval(timer);
+        }, 16);
+      }
+
+      const igObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Spesa (special)
+            const spesaEl = document.getElementById('ig-spesa');
+            let s = 0;
+            const spesaTimer = setInterval(() => {
+              s = Math.min(+(s + 0.49).toFixed(2), 39.82);
+              spesaEl.textContent = '€ ' + s.toFixed(2).replace('.', ',');
+              if (s >= 39.82) clearInterval(spesaTimer);
+            }, 20);
+            // Others
+            [
+              { id: 'ig-copertura', target: 3601 },
+              { id: 'ig-impression', target: 12392 },
+              { id: 'ig-clic', target: 99 }
+            ].forEach(({ id, target }) => {
+              animateNum(document.getElementById(id), target);
+            });
+            igObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      const igMetrics = document.getElementById('ig-metrics');
+      if (igMetrics) igObserver.observe(igMetrics);
+
+      /* ===== IG EXPAND (Dati Demografici) ===== */
+      const expandBtn = document.getElementById('ig-expand-btn');
+      const demoSection = document.getElementById('ig-demo');
+      let barsAnimated = false;
+
+      expandBtn.addEventListener('click', () => {
+        const isOpen = demoSection.classList.contains('open');
+        demoSection.classList.toggle('open', !isOpen);
+        expandBtn.classList.toggle('open', !isOpen);
+        expandBtn.setAttribute('aria-expanded', String(!isOpen));
+
+        if (!isOpen && !barsAnimated) {
+          barsAnimated = true;
+          setTimeout(() => {
+            document.querySelectorAll('.demo-bar-fill').forEach(bar => {
+              bar.style.width = bar.dataset.width + '%';
+            });
+          }, 150);
+        }
+      });
+
+    })();
+  </script>
+  <!-- Form nascosto per il rilevamento automatico di Netlify Forms -->
+  <form name="contact-portfolio" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="nome" />
+    <input type="text" name="occupazione" />
+    <input type="text" name="colpito" />
+    <textarea name="richiesta"></textarea>
+  </form>
+  <script src="contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copywriting Strategico: Luce Intermittente — Giordano Zorzi</title>
+  <meta name="description" content="Caso studio Copywriting per la mostra 'Luce Intermittente' alle Grotte di Catullo. Come una narrazione introspettiva diventa un ecosistema di contenuti digitali.">
+  <meta name="author" content="Giordano Zorzi">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* ===== HERO ===== */
+    .copy-hero {
+      width: 100%;
+      min-height: 340px;
+      background: linear-gradient(to bottom, rgba(11, 29, 58, 0.55), rgba(11, 29, 58, 0.82)), url('Copywriting/Copertina.png') center/cover no-repeat;
+      border-radius: 20px;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.6s ease both;
+    }
+    .copy-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(212,175,55,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(180,120,220,0.07) 0%, transparent 50%);
+    }
+    .copy-hero-tag {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: #c9a0dc;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(201,160,220,0.5);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .copy-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .copy-hero-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(242,236,221,0.7);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    /* ===== SECTION COMMONS ===== */
+    .section-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text-eggshell);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-desc {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .copy-section { margin-bottom: 5.5rem; }
+
+    /* ===== IDENTITY BOX ===== */
+    .identity-box {
+      background: rgba(26,43,76,0.5);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .identity-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c9a0dc, var(--gold-satin), transparent);
+    }
+    .identity-field-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .identity-field-value {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-eggshell);
+      line-height: 1.3;
+    }
+    .identity-field-value.italic { font-style: italic; color: #c9a0dc; }
+    .identity-field-sub {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== SOSPIRI SEQUENCE ===== */
+    .sospiri-container {
+      position: relative;
+      min-height: 420px; /* altezza fissa per contenere il capitolo più lungo senza che i bottoni si spostino */
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .sospiri-text-area {
+      flex: 1;
+      position: relative;
+      min-height: 340px;
+    }
+    .sospiro-block {
+      display: none;
+      animation: sospiroIn 0.7s ease both;
+    }
+    .sospiro-block.active { display: block; }
+    @keyframes sospiroIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes sospiroOut {
+      from { opacity: 1; transform: translateY(0); }
+      to   { opacity: 0; transform: translateY(-16px); }
+    }
+    .sospiro-block.exiting { display: block; animation: sospiroOut 0.4s ease both; }
+
+    .sospiro-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+    }
+    .sospiro-dot {
+      width: 24px; height: 6px;
+      border-radius: 3px;
+      background: rgba(212,175,55,0.2);
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+    .sospiro-dot:hover { background: rgba(212,175,55,0.5); }
+    .sospiro-dot.done { background: var(--gold-saffron); }
+    .sospiro-dot.active { background: var(--gold-satin); }
+
+    .sospiro-chapter {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #c9a0dc;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .sospiro-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--gold-saffron);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+      line-height: 1.2;
+    }
+    .sospiro-text {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--text-eggshell);
+      line-height: 1.9;
+      max-width: 700px;
+      border-left: 2px solid rgba(201,160,220,0.3);
+      padding-left: 1.5rem;
+    }
+
+    .sospira-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2.5rem;
+      background: transparent;
+      border: 1px solid var(--gold-satin);
+      color: var(--gold-saffron);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      letter-spacing: 0.05em;
+    }
+    .sospira-btn:hover {
+      background: rgba(212,175,55,0.08);
+      box-shadow: 0 0 20px rgba(212,175,55,0.15);
+    }
+    .sospira-btn:disabled { opacity: 0; pointer-events: none; }
+
+    /* ===== FLIP CARDS ===== */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .flip-card {
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1.8rem;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-front {
+      background: rgba(26,43,76,0.6);
+      border: 1px solid rgba(212,175,55,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .flip-back {
+      background: linear-gradient(135deg, rgba(42,21,64,0.95), rgba(26,43,76,0.95));
+      border: 1px solid var(--gold-satin);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .flip-phase {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-satin);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .flip-quote {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-eggshell);
+      line-height: 1.5;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .flip-hint {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: rgba(212,175,55,0.5);
+      text-align: right;
+      letter-spacing: 0.1em;
+    }
+    .flip-objective {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #c9a0dc;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .flip-post-text {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text-eggshell);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .flip-strategy {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      color: var(--gold-satin);
+      font-style: italic;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(212,175,55,0.15);
+    }
+
+    /* ===== ASSET PLACEHOLDERS ===== */
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .asset-ph {
+      aspect-ratio: 4/5;
+      border: 1px dashed rgba(212,175,55,0.2);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: rgba(26,43,76,0.2);
+      transition: var(--transition-smooth);
+    }
+    .asset-ph:hover { border-color: rgba(212,175,55,0.4); background: rgba(26,43,76,0.4); }
+    .asset-ph-icon { font-size: 1.8rem; opacity: 0.35; }
+    .asset-ph-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: rgba(212,175,55,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .identity-box { grid-template-columns: 1fr 1fr; }
+      .flip-grid { grid-template-columns: 1fr; height: auto; }
+      .flip-card { height: 260px; }
+      .assets-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .identity-box { grid-template-columns: 1fr; }
+      .assets-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo-text" data-transition>GZ</a>
+      <a href="chi-sono.html" class="nav-contact" data-transition>CHI SONO</a>
+    </div>
+    <a href="mailto:zorzigiordano@gmail.com" class="nav-contact">CONTATTAMI</a>
+  </nav>
+
+  <!-- ======== BACK BUTTON ======== -->
+  <a href="index.html" class="back-btn" data-transition>
+    <span class="back-arrow">←</span> BACK
+  </a>
+
+  <!-- ======== PAGE CONTENT ======== -->
+  <div class="page-wrapper">
+    <div class="case-study-wrapper">
+
+      <!-- HERO -->
+      <div class="copy-hero">
+        <span class="copy-hero-tag">CASO STUDIO - MOSTRA D'ARTE SULL'AMORE E LA BELLEZZA</span>
+        <h1 class="copy-hero-title">Copywriting Strategico:<br>Luce Intermittente</h1>
+        <p class="copy-hero-subtitle">Come una narrazione introspettiva si trasforma in un ecosistema di contenuti digitali per un target 20–30 anni.</p>
+      </div>
+
+      <!-- IDENTITY BOX -->
+      <div class="copy-section">
+        <p class="section-eyebrow">L'Identità del Progetto</p>
+        <h2 class="section-title">Nome, Payoff &amp; Posizionamento</h2>
+
+        <div class="identity-box">
+          <div>
+            <div class="identity-field-label">Naming</div>
+            <div class="identity-field-value">Luce Intermittente</div>
+            <div class="identity-field-sub">Un titolo che evoca il lampo — bello e doloroso insieme. La luce che appare e scompare, come le relazioni che definiscono chi siamo.</div>
+          </div>
+          <div>
+            <div class="identity-field-label">Payoff</div>
+            <div class="identity-field-value italic">"Tra amore, bellezza, ingiustizia."</div>
+            <div class="identity-field-sub">Tre parole che contengono l'intera tensione drammaturgica della mostra. Non una promessa, ma uno stato d'animo.</div>
+          </div>
+          <div>
+            <div class="identity-field-label">USP</div>
+            <div class="identity-field-sub">Non una storia d'amore. Un'analisi emotiva delle situationship, dell'ossessione e della libertà per un pubblico 20–30 anni che non si riconosce nei racconti romantici tradizionali.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IL RACCONTO DINAMICO: SEQUENZA A SOSPIRI -->
+      <div class="copy-section">
+        <p class="section-eyebrow">Il Racconto</p>
+        <h2 class="section-title">Sequenza a Sospiri</h2>
+        <p class="section-desc">La storia drammaturgica che alimenta tutto l'ecosistema di contenuto. Avanza un respiro alla volta.</p>
+
+        <div class="sospiri-container">
+          <div class="sospiro-progress" id="sospiro-progress">
+            <div class="sospiro-dot active"></div>
+            <div class="sospiro-dot"></div>
+            <div class="sospiro-dot"></div>
+            <div class="sospiro-dot"></div>
+            <div class="sospiro-dot"></div>
+          </div>
+
+          <!-- Blocco 1 -->
+          <div class="sospiro-block active" id="sospiro-1">
+            <div class="sospiro-chapter">Capitolo I · Il Sogno</div>
+            <div class="sospiro-title">La ragazza sogna l'amore</div>
+            <p class="sospiro-text">
+              Nasce tutto per caso - o forse no - con te è stato così. Io e te, caro mio, stiamo facendo il nostro solito aperitivo al parco, sulla tua stuoia da picnic. È un tramonto di primavera, nitido e colorato come pochi. Il cielo alle tue spalle è tinto di un rosa splendido. Ma all’improvviso scatta qualcosa. Un fulmine a ciel sereno, un’esplosione improvvisa, uno strapiombo dentro al petto. Come un pallone che mi colpisce sul naso, rimango stordita e non capisco. Strabuzzo gli occhi, il naso mi pizzica e ho le lacrime agli occhi.
+              <br><br>
+              Sospiro.
+            </p>
+          </div>
+
+          <!-- Blocco 2 -->
+          <div class="sospiro-block" id="sospiro-2">
+            <div class="sospiro-chapter">Capitolo II · La Sveglia</div>
+            <div class="sospiro-title">*drin!* 6:28</div>
+            <p class="sospiro-text">
+              *drin!* 6:28 - suona la sveglia. La luce mattutina inonda la stanza e colpisce le lenzuola. Sento il calore del sole scaldarmi le ossa. Non apro gli occhi - non voglio abbandonarti! *boom!* Tentando di spegnere la sveglia, la faccio cadere nel buco nero di carta e plastica che risiede stabilmente ai piedi del mio giaciglio.
+              <br><br>
+              Sospiro.
+              <br><br>
+              Voglio abbandonare questa realtà. Voglio tornare a ricordarti, amore mio! I tuoi occhi nero pece, il tuo profumo agrumato… tutti i discorsi che facevi sul matrimonio e l’amore eterno…
+            </p>
+          </div>
+
+          <!-- Blocco 3 -->
+          <div class="sospiro-block" id="sospiro-3">
+            <div class="sospiro-chapter">Capitolo III · Il Ricordo</div>
+            <div class="sospiro-title">Elena e il Senno di Poi</div>
+            <p class="sospiro-text">
+              dicevi che Dio ci aveva scelti come Adamo ed Eva. Mi facevi sentire speciale. Non proverò più quello che provo per te, non lo proverò più per nessun altro. è impossibile: tu sei tutto!
+              <br><br>
+              Sospiro.
+              <br><br>
+              Io ho sempre avuto occhi solo per te. Tu non credevi lo stesso. La tua gelosia mi faceva sentire importante per te, difesa. Ma alle volte esageravi. Elena me lo diceva spesso, ma io la ignoravo: lei non era nella posizione di dirmi cosa dovessi fare, non poteva capirmi, chiusa nella sua torre d’avorio con Christian. Ma col senno di poi ebbe ragione. Ohh se ebbe ragione.
+              <br><br>
+              Sospiro.
+            </p>
+          </div>
+
+          <!-- Blocco 4 -->
+          <div class="sospiro-block" id="sospiro-4">
+            <div class="sospiro-chapter">Capitolo IV · L'Ossessione</div>
+            <div class="sospiro-title">L'Ossessione per Gioele</div>
+            <p class="sospiro-text">
+              Tu eri ossessionato da Gioele, il mio vecchio amico d’infanzia. Io e lui siamo cresciuti come fratello e sorella: le rispettive mamme ci venivano a prendere dopo scuola e le nonne cucinavano le lasagne al ragù, lui guardava sempre Dragon Ball su Italia 1. Tu sei entrato nella mia vita molto dopo, verso i 20 anni. Gioele è sempre stato al mio fianco, tu no. Eppure ti sei permesso di metterti tra noi due, alzare la voce e le mani, ferire me e lui.
+              <br><br>
+              Eri impazzito per una sciocchezza. Non accettavi che andassi vestita e truccata come volessi io. Non ascoltavi le mie idee e svalutavi i miei pareri. Non volevi che mi sentissi me stessa, volevi sentirmi tua. La tua gelosia è diventata invasiva quando ho sentito di essere diventata una tua proprietà. Non lo accetto più.
+            </p>
+          </div>
+
+          <!-- Blocco 5 -->
+          <div class="sospiro-block" id="sospiro-5">
+            <div class="sospiro-chapter">Capitolo V · Il Finale</div>
+            <div class="sospiro-title">Torno al Presente</div>
+            <p class="sospiro-text">
+              Ohh se Elena aveva ragione.
+              <br><br>
+              Sospiro.
+              <br><br>
+              Torno al presente. La luce si fa spazio tra le ciglia e mi riconnette alla realtà.
+              <br><br>
+              Posso provare di nuovo l’amore?
+              <br>
+              Che cos’è l’amore a questo punto?
+              <br>
+              Una violenza, un sogno o un ricordo?
+              <br>
+              L’amore è arte e unione? L’amore è possesso e manipolazione?
+              <br>
+              L’amore è vita o morte?
+              <br><br>
+              <span style="font-style: italic; opacity: 0.85;">Una storia di Giordano Zorzi</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="sospira-nav" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-shrink: 0;">
+          <button class="sospira-btn" id="inspira-btn" aria-label="Torna al capitolo precedente" style="opacity:0.3;" disabled>[ Inspira. ]</button>
+          <button class="sospira-btn" id="sospira-btn" aria-label="Leggi il prossimo capitolo">[ Sospira. ]</button>
+        </div>
+      </div>
+
+      <!-- DAL RACCONTO AI POST - NASCOSTA TEMPORANEAMENTE -->
+      <div class="copy-section" style="display: none;">
+        <p class="section-eyebrow">Dal Racconto ai Post</p>
+        <h2 class="section-title">La Traduzione nel Piano Editoriale Digitale</h2>
+        <p class="section-desc">Come la storia drammaturgica diventa contenuto strategico. Hover o click su ogni card per vedere il post reale e il suo obiettivo.</p>
+
+        <div class="flip-grid" id="flip-grid">
+
+          <!-- Card 1: PRE-EVENTO -->
+          <div class="flip-card" id="card-1" tabindex="0" role="button" aria-label="Card 1: Hype Pre-evento" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div>
+                  <div class="flip-phase">Hype Pre-evento</div>
+                  <div class="flip-quote">
+                    "Quanto mi manca...<br>quel fulmine a ciel sereno."
+                  </div>
+                </div>
+                <div class="flip-hint">⟳ Gira la card</div>
+              </div>
+              <div class="flip-back">
+                <div>
+                  <div class="flip-objective">Obiettivo: Hype &amp; Anticipazione</div>
+                  <div class="flip-post-text">
+                    "C'è quella sensazione che hai provato almeno una volta. Quel momento in cui tutto stava bene, e poi all'improvviso — boom. Un fulmine a ciel sereno. Non sempre è una cosa brutta. A volte è l'inizio di tutto.
+                    <br><br>
+                    <strong>Luce Intermittente</strong> apre il prossimo mese. Sei pronto a ricordare?"
+                  </div>
+                </div>
+                <div class="flip-strategy">↗ Strategia: nostalgia + anticipazione senza rivelare il contenuto.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: DURANTE -->
+          <div class="flip-card" id="card-2" tabindex="0" role="button" aria-label="Card 2: Consapevolezza Durante" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div>
+                  <div class="flip-phase">Consapevolezza Durante</div>
+                  <div class="flip-quote">
+                    "Ma mi hai fatta sentire in trappola, come Dafne."
+                  </div>
+                </div>
+                <div class="flip-hint">⟳ Gira la card</div>
+              </div>
+              <div class="flip-back">
+                <div>
+                  <div class="flip-objective">Focus: Situationship &amp; Empowerment</div>
+                  <div class="flip-post-text">
+                    "Dafne scappava da Apollo non perché non lo capiva — ma perché capiva troppo bene cosa sarebbe diventata se fosse rimasta.
+                    <br><br>
+                    Le situationship moderne funzionano così: ti tengono abbastanza vicina da farti sentire speciale, abbastanza lontana da non sentirti mai al sicuro."
+                  </div>
+                </div>
+                <div class="flip-strategy">↗ Strategia: riferimento mitologico + identificazione emotiva per il pubblico 20-30.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: POST-EVENTO -->
+          <div class="flip-card" id="card-3" tabindex="0" role="button" aria-label="Card 3: Engagement Finale" aria-pressed="false">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div>
+                  <div class="flip-phase">Engagement Finale</div>
+                  <div class="flip-quote">
+                    "L'amore è vita... o morte?"
+                  </div>
+                </div>
+                <div class="flip-hint">⟳ Gira la card</div>
+              </div>
+              <div class="flip-back">
+                <div>
+                  <div class="flip-objective">Obiettivo: Engagement &amp; Riflessione Collettiva</div>
+                  <div class="flip-post-text">
+                    "Cosa ti ha lasciato Luce Intermittente? Noi crediamo che l'amore autentico — quello che ti lascia crescere — non assomigli a quasi nulla di quello che ci hanno raccontato.
+                    <br><br>
+                    Dimmi nei commenti: qual era la frase che ti ha colpito di più. E perché."
+                  </div>
+                </div>
+                <div class="flip-strategy">↗ Strategia: domanda aperta + UGC implicito per amplificare il post-evento.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ASSET CREATIVI - NASCOSTA TEMPORANEAMENTE -->
+      <div class="copy-section" style="display: none;">
+        <p class="section-eyebrow">Asset Creativi</p>
+        <h2 class="section-title">Visual dei Post — In Produzione</h2>
+        <p class="section-desc">I placeholder degli asset creativi correlati al piano editoriale. Le immagini finali saranno inserite in fase di pubblicazione.</p>
+
+        <div class="assets-grid">
+          <div class="asset-ph"><div class="asset-ph-icon">🖼️</div><div class="asset-ph-label">Asset #1</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">🖼️</div><div class="asset-ph-label">Asset #2</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">🖼️</div><div class="asset-ph-label">Asset #3</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">🖼️</div><div class="asset-ph-label">Asset #4</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">🎬</div><div class="asset-ph-label">Reel #1</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">🎬</div><div class="asset-ph-label">Reel #2</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">📱</div><div class="asset-ph-label">Stories #1</div></div>
+          <div class="asset-ph"><div class="asset-ph-icon">📱</div><div class="asset-ph-label">Stories #2</div></div>
+        </div>
+      </div>
+
+      <!-- CTA FINALE -->
+      <div style="text-align: center; margin: 4rem 0 4rem 0;">
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--gold-saffron); margin-bottom: 1.2rem; font-style: italic;">
+          Hai una storia da raccontare. Hai solo bisogno del linguaggio giusto.
+        </h3>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); margin-bottom: 2rem; max-width: 500px; margin-left:auto; margin-right:auto;">
+          Dal concept alla pubblicazione, costruiamo insieme il copy che converte perché prima di tutto convince.
+        </p>
+        <a href="mailto:zorzigiordano@gmail.com" class="btn-primary">RACCONTIAMO INSIEME</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== EXPAND OVERLAY ======== -->
+  <div id="expand-overlay" class="expand-overlay"></div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-left">GZ</div>
+    <div class="footer-center">© 2026 All rights reserved</div>
+    <div class="footer-right" style="gap: 1.5rem; display: flex; align-items: center;">
+      <a href="https://www.linkedin.com/in/giordano-zorzi-35bb4b272/" target="_blank" style="text-decoration: none;" aria-label="LinkedIn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#0077b5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/rewild_ets/" target="_blank" style="text-decoration: none;" aria-label="Instagram">
+        <svg width="28" height="28" viewBox="0 0 24 24"><defs><linearGradient id="ig-grad-copy" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig-grad-copy)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="mailto:zorzigiordano@gmail.com" style="text-decoration: none;" aria-label="Email">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ===== PAGE TRANSITION ===== */
+      const overlay = document.getElementById('expand-overlay');
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('[data-transition]');
+        if (!link || !link.getAttribute('href') || link.getAttribute('href') === '#') return;
+        e.preventDefault();
+        const ox = e.clientX || window.innerWidth / 2, oy = e.clientY || window.innerHeight / 2;
+        overlay.style.clipPath = `circle(0px at ${ox}px ${oy}px)`;
+        overlay.classList.add('active');
+        overlay.offsetHeight;
+        overlay.style.clipPath = `circle(200vmax at ${ox}px ${oy}px)`;
+        setTimeout(() => {
+          const isBackBtn = link.classList.contains('back-btn');
+          if (isBackBtn && window.history.length > 1 && document.referrer.includes(window.location.hostname)) {
+            window.history.back();
+          } else {
+            window.location.href = link.getAttribute('href');
+          }
+        }, 850);
+      });
+
+      /* ===== SOSPIRI SEQUENCE ===== */
+      const blocks = document.querySelectorAll('.sospiro-block');
+      const dots = document.querySelectorAll('.sospiro-dot');
+      const sospiraBtn = document.getElementById('sospira-btn');
+      const inspiraBtn = document.getElementById('inspira-btn');
+      let current = 0;
+
+      function updateDots(idx) {
+        dots.forEach((dot, i) => {
+          dot.classList.remove('active', 'done');
+          if (i < idx) dot.classList.add('done');
+          else if (i === idx) dot.classList.add('active');
+        });
+      }
+
+      function updateButtons() {
+        sospiraBtn.disabled = current === blocks.length - 1;
+        if (inspiraBtn) {
+          inspiraBtn.disabled = current === 0;
+          inspiraBtn.style.opacity = current === 0 ? '0.3' : '1';
+        }
+      }
+
+      function transitionTo(idx) {
+        if (idx === current || idx < 0 || idx >= blocks.length) return;
+
+        const outgoing = blocks[current];
+        outgoing.classList.add('exiting');
+
+        setTimeout(() => {
+          outgoing.classList.remove('active', 'exiting');
+          current = idx;
+          blocks[current].classList.add('active');
+          updateDots(current);
+          updateButtons();
+        }, 380);
+      }
+
+      sospiraBtn.addEventListener('click', () => {
+        transitionTo(current + 1);
+      });
+
+      if (inspiraBtn) {
+        inspiraBtn.addEventListener('click', () => {
+          transitionTo(current - 1);
+        });
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          transitionTo(i);
+        });
+      });
+
+      /* ===== FLIP CARDS (keyboard + touch support) ===== */
+      document.querySelectorAll('.flip-card').forEach(card => {
+        function toggleFlip() {
+          const isFlipped = card.classList.contains('flipped');
+          card.classList.toggle('flipped', !isFlipped);
+          card.setAttribute('aria-pressed', String(!isFlipped));
+        }
+        card.addEventListener('click', toggleFlip);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlip(); }
+        });
+      });
+
+    })();
+  </script>
+  <!-- Form nascosto per il rilevamento automatico di Netlify Forms -->
+  <form name="contact-portfolio" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="nome" />
+    <input type="text" name="occupazione" />
+    <input type="text" name="colpito" />
+    <textarea name="richiesta"></textarea>
+  </form>
+  <script src="contact.js"></script>
+</body>
+</html>

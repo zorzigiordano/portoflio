@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX & CRO: Freshlivery — Giordano Zorzi</title>
+  <meta name="description" content="Caso studio UX e Conversion Rate Optimization per Freshlivery. Dall'analisi qualitativa all'interfaccia ad alta conversione.">
+  <meta name="author" content="Giordano Zorzi">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* Hero image specifica per Freshlivery */
+    .freshlivery-hero {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(to bottom, rgba(26, 43, 76, 0.4), var(--bg-night)), url('ux/Freshlivery.jpg') center/cover;
+      border-radius: 20px;
+      margin-bottom: 4rem;
+      animation: slideUp 0.6s ease both;
+    }
+    
+    @media (max-width: 900px) {
+      .freshlivery-hero { height: 250px; }
+    }
+
+    /* Ridimensionamento smartphone mockup per fit ottimale */
+    .smartphone-frame {
+      width: 270px;
+      height: 590px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 0 2px #444;
+    }
+    .smartphone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo-text" data-transition>GZ</a>
+      <a href="chi-sono.html" class="nav-contact" data-transition>CHI SONO</a>
+    </div>
+    <a href="mailto:zorzigiordano@gmail.com" class="nav-contact">CONTATTAMI</a>
+  </nav>
+
+  <!-- ======== BACK BUTTON ======== -->
+  <a href="index.html" class="back-btn" data-transition>
+    <span class="back-arrow">←</span> BACK
+  </a>
+
+  <!-- ======== PAGE CONTENT ======== -->
+  <div class="page-wrapper">
+    
+    <!-- Hero Immagine -->
+    <div class="case-study-wrapper">
+      <div class="freshlivery-hero"></div>
+      
+      <div class="project-header" style="text-align: center; max-width: 800px; margin: 0 auto 5rem auto;">
+        <h1 class="project-title">Freshlivery UX &amp; CRO</h1>
+      </div>
+
+      <!-- IL CONTESTO -->
+      <div class="case-intro">
+        <div class="case-intro-block" style="animation: slideUp 0.6s ease both; animation-delay: 0.1s;">
+          <h3>// IL PROBLEMA</h3>
+          <p>
+            Fase di checkout eccessivamente complessa con 7 passaggi e un form di registrazione lungo (15 campi obbligatori). L'architettura informativa generava attrito percettivo, portando a frequenti abbandoni del carrello e ad un innalzamento del costo di acquisizione (CAC).
+          </p>
+        </div>
+        <div class="case-intro-block" style="animation: slideUp 0.6s ease both; animation-delay: 0.2s;">
+          <h3>// LA STRATEGIA</h3>
+          <p>
+            Partendo dagli insight forniti dal brief ho spiegato all'utente <em>come funziona la spesa a domicilio di prodotti freschi a filiera corta</em> con Freshlivery e qual è il beneficio.
+          </p>
+        </div>
+      </div>
+
+      <!-- IL PUNTO DI PARTENZA (PRIMA) -->
+      <div class="project-header" style="text-align: center; margin-top: 6rem;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-saffron);">Il Punto di Partenza (Prima)</h2>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); max-width: 600px; margin: 1.5rem auto 0 auto;">
+          Il design originario presentava diverse barriere all'ingresso, con interfacce non ottimizzate che causavano drop-off e percorsi utente non lineari.
+        </p>
+      </div>
+
+      <div class="device-container">
+        <!-- Mockup 1: PRIMA 1 -->
+        <div class="mockup-column" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+          <div class="smartphone-frame">
+            <div class="smartphone-notch"></div>
+            <div class="smartphone-screen">
+              <img src="ux/Freshlivery/prima1.png" alt="App Mobile Vista 1">
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup 2: PRIMA 2 -->
+        <div class="mockup-column" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+          <div class="smartphone-frame">
+            <div class="smartphone-notch"></div>
+            <div class="smartphone-screen">
+              <img src="ux/Freshlivery/prima2.png" alt="App Mobile Vista 2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LA SOLUZIONE (DOPO) -->
+      <div class="project-header" style="text-align: center; margin-top: 8rem; margin-bottom: 4rem;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-saffron);">La Soluzione (Dopo)</h2>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); max-width: 600px; margin: 1.5rem auto 0 auto;">
+          Una totale riscrittura dell'esperienza utente: nessun ostacolo visivo, copy persuasivo e un'architettura progettata per facilitare la conversione.
+        </p>
+      </div>
+
+      <div class="device-container" style="margin-bottom: 8rem;">
+        <!-- Mockup 3: DOPO 1 -->
+        <div class="mockup-column" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+          <div class="smartphone-frame">
+            <div class="smartphone-notch"></div>
+            <div class="smartphone-screen">
+              <img src="ux/Freshlivery/dopo1.png" alt="App Mobile Redesign 1">
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup 4: DOPO 2 -->
+        <div class="mockup-column" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+          <div class="smartphone-frame">
+            <div class="smartphone-notch"></div>
+            <div class="smartphone-screen">
+              <img src="ux/Freshlivery/dopo2.png" alt="App Mobile Redesign 2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- I RISULTATI -->
+      <div class="metrics-section">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--text-eggshell); margin-bottom: 1.5rem;">
+          L'Impatto
+        </h2>
+        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+          Il design non è decorazione, è ingegneria comportamentale.<br>
+          Per creare un buon design bisogna <strong style="color: var(--gold-saffron);">testare</strong> ed <strong style="color: var(--gold-saffron);">ottimizzare</strong>, non basta pensare bene.
+        </p>
+      </div>
+
+      <!-- CTA FINALE -->
+      <div style="text-align: center; margin: 8rem 0 4rem 0;">
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--gold-saffron); margin-bottom: 1.5rem;">
+          Il funnel della tua agenzia perde utenti?
+        </h3>
+        <p style="font-size: 1.1rem; color: var(--text-eggshell); margin-bottom: 2rem;">
+          Analizziamo i punti di attrito e costruiamo un'esperienza ad alta conversione.
+        </p>
+        <a href="mailto:zorzigiordano@gmail.com" class="btn-primary">OTTIMIZZIAMO IL TUO FUNNEL</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======== EXPAND OVERLAY ======== -->
+  <div id="expand-overlay" class="expand-overlay"></div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-left">GZ</div>
+    <div class="footer-center">© 2026 All rights reserved</div>
+    <div class="footer-right" style="gap: 1.5rem; display: flex; align-items: center;">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/giordano-zorzi-35bb4b272/" target="_blank" style="text-decoration: none;" aria-label="LinkedIn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#0077b5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/rewild_ets/" target="_blank" style="text-decoration: none;" aria-label="Instagram">
+        <svg width="28" height="28" viewBox="0 0 24 24">
+          <defs>
+            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f09433" />
+              <stop offset="25%" stop-color="#e6683c" />
+              <stop offset="50%" stop-color="#dc2743" />
+              <stop offset="75%" stop-color="#cc2366" />
+              <stop offset="100%" stop-color="#bc1888" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <!-- Email -->
+      <a href="mailto:zorzigiordano@gmail.com" style="text-decoration: none;" aria-label="Email">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      const overlay = document.getElementById('expand-overlay');
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('[data-transition]');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        
+        const ox = e.clientX || window.innerWidth / 2;
+        const oy = e.clientY || window.innerHeight / 2;
+        overlay.style.clipPath = `circle(0px at ${ox}px ${oy}px)`;
+        overlay.classList.add('active');
+        overlay.offsetHeight;
+        overlay.style.clipPath = `circle(200vmax at ${ox}px ${oy}px)`;
+        
+        setTimeout(function () {
+          const isBackBtn = link.classList.contains('back-btn');
+          if (isBackBtn && window.history.length > 1 && document.referrer.includes(window.location.hostname)) {
+            window.history.back();
+          } else {
+            window.location.href = href;
+          }
+        }, 850);
+      });
+    })();
+  </script>
+  <!-- Form nascosto per il rilevamento automatico di Netlify Forms -->
+  <form name="contact-portfolio" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="nome" />
+    <input type="text" name="occupazione" />
+    <input type="text" name="colpito" />
+    <textarea name="richiesta"></textarea>
+  </form>
+  <script src="contact.js"></script>
+</body>
+</html>
