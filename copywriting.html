@@ -137,21 +137,26 @@
     /* ===== SOSPIRI SEQUENCE ===== */
     .sospiri-container {
       position: relative;
-      min-height: 420px; /* altezza fissa per contenere il capitolo più lungo senza che i bottoni si spostino */
       margin-top: 2rem;
       display: flex;
       flex-direction: column;
     }
     .sospiri-text-area {
-      flex: 1;
       position: relative;
-      min-height: 340px;
+      display: grid;
+      align-items: start;
     }
     .sospiro-block {
-      display: none;
-      animation: sospiroIn 0.7s ease both;
+      grid-area: 1 / 1;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
-    .sospiro-block.active { display: block; }
+    .sospiro-block.active { 
+      visibility: visible;
+      pointer-events: auto;
+      animation: sospiroIn 0.7s ease both; 
+    }
     @keyframes sospiroIn {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -160,7 +165,10 @@
       from { opacity: 1; transform: translateY(0); }
       to   { opacity: 0; transform: translateY(-16px); }
     }
-    .sospiro-block.exiting { display: block; animation: sospiroOut 0.4s ease both; }
+    .sospiro-block.exiting { 
+      visibility: visible;
+      animation: sospiroOut 0.4s ease both; 
+    }
 
     .sospiro-progress {
       display: flex;
