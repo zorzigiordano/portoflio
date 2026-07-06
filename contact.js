@@ -273,6 +273,7 @@
         // Collect data
         const formData = {
           nome: document.getElementById('contact-name').value,
+          email: document.getElementById('contact-email').value,
           occupazione: document.getElementById('contact-job').value,
           colpito: document.getElementById('contact-hook').value,
           richiesta: document.getElementById('contact-message').value
